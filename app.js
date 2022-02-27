@@ -2,19 +2,24 @@ const searchFood= ()=>{
     const searchBar = document.getElementById('search-bar');
     const searchBarValue = searchBar.value;
     searchBar.value = "";
+    document.getElementById('spinner').style.display='block';
     
    if(searchBarValue == ''){
-     alert('please write something here!!!')
+    document.getElementById('error-msg').style.display = 'block';
    }
    else{
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchBarValue}`;
     fetch(url)
     .then(res => res.json())
     .then(data => displayFood(data.meals))
-   }
-   
+    .catch(error => erroMessage(error))
+   }   
+}
+const erroMessage = error =>{
+  document.getElementById('error-msg').style.display = 'block';
 }
 const displayFood = foods =>{
+  document.getElementById('spinner').style.display='none';
   const foodDiv = document.getElementById('food-div');
   foodDiv.textContent = "";
   // document.body.style.backgroundImage='none';

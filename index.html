@@ -30,7 +30,15 @@
    <div class="container">
     <div id="input-field" class="input-group input-group-lg mx-auto mt-5">
         <input id="search-bar" type="text" class="form-control border-3 rounded-pill" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Search your food here">
-        <button  onclick="searchFood()" class="input-group-text text-white fw-bold btn btn-outline-primary rounded-pill" id="inputGroup-sizing-lg">Search</button>
+        <button  onclick="searchFood()" class="input-group-text text-warning fw-bold btn btn-outline-primary rounded-pill" id="inputGroup-sizing-lg">Search</button>
+      </div>
+
+
+     <p id="error-msg" style="display: none;" class="text-center mt-2 fw-bold text-danger">Something went wrong!!! Please try again!!!</p>
+     <div style="display: none;" id="spinner" class="text-center mt-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden ">Loading...</span>
+        </div>
       </div>
     
 
