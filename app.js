@@ -3,16 +3,23 @@ const searchFood= ()=>{
     const searchBarValue = searchBar.value;
     searchBar.value = "";
     
-
+   if(searchBarValue == ''){
+     alert('please write something here!!!')
+   }
+   else{
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchBarValue}`;
     fetch(url)
     .then(res => res.json())
     .then(data => displayFood(data.meals))
+   }
+   
 }
 const displayFood = foods =>{
+  const foodDiv = document.getElementById('food-div');
+  foodDiv.textContent = "";
+  // document.body.style.backgroundImage='none';
      console.log(foods);
      for(const food of foods){
-         const foodDiv = document.getElementById('food-div');
          const div= document.createElement('div');
          div.classList.add('col')
          div.innerHTML = `
@@ -39,8 +46,9 @@ const detailsFood = id =>{
 const foodDetails = details =>{
     
     const  foodinfo= details.meals[0];
-    console.log(foodinfo);
+    // console.log(foodinfo);
     const detailDiv = document.getElementById('detail-div');
+    detailDiv.textContent= '';
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
