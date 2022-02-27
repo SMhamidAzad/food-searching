@@ -19,6 +19,7 @@ const erroMessage = error =>{
   document.getElementById('error-msg').style.display = 'block';
 }
 const displayFood = foods =>{
+  document.getElementById('error-msg').style.display = 'none';
   document.getElementById('spinner').style.display='none';
   const foodDiv = document.getElementById('food-div');
   foodDiv.textContent = "";
